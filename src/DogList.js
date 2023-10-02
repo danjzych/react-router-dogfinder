@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function DogList({ dogs }) {
+function DogList({ dogs, selectDog }) {
   return (
     <div>
       {dogs.map((dog) => (
@@ -9,7 +9,9 @@ function DogList({ dogs }) {
           <div>
             <img src={`/${dog.src}.jpg`} width="200px" />
           </div>
-          <Link to={`/dogs/${dog.name}`}> {dog.name} </Link>
+          <Link to={`/dogs/${dog.name}`} onClick={() => selectDog(dog)}>
+            {dog.name}
+          </Link>
         </div>
       ))}
     </div>

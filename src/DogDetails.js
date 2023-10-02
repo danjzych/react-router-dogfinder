@@ -2,11 +2,7 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-function DogDetails({ dogs }) {
-  const { name } = useParams();
-
-  const dog = dogs.filter((dog) => dog.name === name)[0];
-
+function DogDetails({ dog }) {
   return (
     <>
       <div>

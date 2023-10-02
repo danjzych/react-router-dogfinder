@@ -1,12 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./Nav.css";
 
-function Nav({ dogs }) {
+function Nav({ dogs, selectDog }) {
   return (
-    <nav>
+    <nav className="Nav">
       <NavLink to="/">Home</NavLink>
       {dogs.map((dog) => (
-        <NavLink to={`/dogs/${dog.name}`}>{dog.name}</NavLink>
+        <NavLink to={`/dogs/${dog.name}`} onClick={() => selectDog(dog)}>
+          {dog.name}
+        </NavLink>
       ))}
     </nav>
   );

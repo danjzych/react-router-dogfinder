@@ -2,11 +2,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import DogList from "./DogList";
 import DogDetails from "./DogDetails";
 
-function RouteList({ dogs }) {
+function RouteList({ dogs, selectDog, currentDog }) {
   return (
     <Routes>
-      <Route element={<DogList dogs={dogs} />} path="/" />
-      <Route element={<DogDetails dogs={dogs} />} path="/dogs/:name" />
+      <Route element={<DogList dogs={dogs} selectDog={selectDog} />} path="/" />
+      <Route element={<DogDetails dog={currentDog} />} path="/dogs/:name" />
       <Route element={<Navigate to="/" />} path="*" />
     </Routes>
   );
