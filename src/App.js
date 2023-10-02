@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Nav dogs={dogs}/>
+        <Nav dogs={dogs} />
         <RouteList dogs={dogs} isLoaded={isLoaded} />
       </BrowserRouter>
     </div>
