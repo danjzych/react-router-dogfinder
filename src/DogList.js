@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import { getDogData } from "./utils/dogData";
+import { Link } from "react-router-dom";
 
-function DogList() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [dogs, setDogs] = useState([]);
+function DogList({ dogs, isLoaded }) {
 
-  async function getData() {
-    const data = await getDogData();
-    setDogs(data);
-    setIsLoaded(true);
-  }
-
-  if (!isLoaded) {
-    getData();
-  }
-
-  return <div>{!isLoaded ?? <h1>dogs are loading....</h1>}</div>;
+  //FIXME: image is still broken
+  return (
+  <div>
+    {!isLoaded
+      ? <h1>dogs are loading....</h1>
+      : dogs.map(dog => (
+        <div>
+          <img src={`../public/${dog.src}.jpg`} />
+          <Link to={`/dogs/${dog.name}`}> {dog.name} </Link>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default DogList;
