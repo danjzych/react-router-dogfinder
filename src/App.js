@@ -17,13 +17,17 @@ function App() {
 
   if (!isLoaded) {
     getData();
+
+    return (
+      <h1>Dogs are Loading...</h1>
+    );
   }
 
   return (
     <div className="App">
       <BrowserRouter>
         <Nav dogs={dogs} />
-        <RouteList dogs={dogs} isLoaded={isLoaded} />
+        <RouteList dogs={dogs} />
       </BrowserRouter>
     </div>
   );

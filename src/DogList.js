@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function DogList({ dogs, isLoaded }) {
+function DogList({ dogs }) {
   return (
     <div>
-      {!isLoaded ? (
-        <h1>dogs are loading....</h1>
-      ) : (
-        dogs.map((dog) => (
+      {dogs.map((dog) => (
+        <div>
           <div>
-            <img src={require(`../public/${dog.src}.jpg`)} width="200px" />
-            <Link to={`/dogs/${dog.name}`}> {dog.name} </Link>
+            <img src={`/${dog.src}.jpg`} width="200px" />
           </div>
-        ))
-      )}
+          <Link to={`/dogs/${dog.name}`}> {dog.name} </Link>
+        </div>
+      ))}
     </div>
   );
 }
