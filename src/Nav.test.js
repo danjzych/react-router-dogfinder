@@ -1,7 +1,6 @@
 import { render } from "@testing-library/react";
-import DogList from "./DogList";
+import Nav from "./Nav";
 import { MemoryRouter } from "react-router-dom";
-
 selectDog = jest.fn();
 
 const dogs = [
@@ -27,17 +26,17 @@ const dogs = [
   },
 ];
 
-describe("DogList", function () {
+describe("Nav", function () {
   test("renders properly", function () {
-    const { debug, getByText } = render(
-      <MemoryRouter initialEntries={["/"]}>
-        <DogList dogs={dogs} selectDog={selectDog} />
+    const { getByText } = render(
+      <MemoryRouter>
+        <Nav dogs={dogs} selectDog={selectDog} />
       </MemoryRouter>
     );
 
     const dog1 = getByText("Whiskey");
-    const dog2 = getByText("Duke");
     expect(dog1).toBeInTheDocument();
+    const dog2 = getByText("Duke");
     expect(dog2).toBeInTheDocument();
   });
 });
